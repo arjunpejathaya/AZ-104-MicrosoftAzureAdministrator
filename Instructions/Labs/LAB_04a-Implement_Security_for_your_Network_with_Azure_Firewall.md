@@ -5,6 +5,7 @@ lab:
 ---
 
 # Lab 04a - Deploy and configure Azure Firewall using the Azure portal
+
 # Student lab manual
 
 ## Lab scenario
@@ -27,7 +28,7 @@ In this exercise, you will:
 + Task 11: Clean up resources
 
 ## Exercise
-## Task 1: Create a resource group
+### Task 1: Create a resource group
 
 In this task, you will create a new resource group.
 
@@ -49,7 +50,7 @@ In this task, you will create a new resource group.
 
  
 
-## Task 2: Create a virtual network and subnets
+### Task 2: Create a virtual network and subnets
 
 In this task, you will create a single virtual network with two subnets.
 
@@ -90,7 +91,7 @@ In this task, you will create a single virtual network with two subnets.
 
  
 
-## Task 3: Create a virtual machine
+### Task 3: Create a virtual machine
 
 In this task, you will create the workload virtual machine and place it in the Workload-SN subnet created previously.
 
@@ -115,7 +116,7 @@ In this task, you will create the workload virtual machine and place it in the W
 7. On the **Overview** page of **Srv-Work**, on the right of the page under **Networking**, take a note of the **Private IP address** for this VM (e.g., **10.0.2.4**).
  
 
-## Task 4: Deploy the firewall and firewall policy
+### Task 4: Deploy the firewall and firewall policy
 
 In this task, you will deploy the firewall into the virtual network with a firewall policy configured.
 
@@ -163,7 +164,7 @@ In this task, you will deploy the firewall into the virtual network with a firew
 
  
 
-## Task 5: Create a default route
+### Task 5: Create a default route
 
 In this task, on the Workload-SN subnet, you will configure the outbound default route to go through the firewall.
 
@@ -214,7 +215,7 @@ In this task, on the Workload-SN subnet, you will configure the outbound default
 
  
 
-## Task 6: Configure an application rule
+### Task 6: Configure an application rule
 
 In this task, you will add an application rule that allows outbound access to www.google.com.
 
@@ -250,7 +251,7 @@ In this task, you will add an application rule that allows outbound access to ww
 
  
 
-## Task 7: Configure a network rule
+### Task 7: Configure a network rule
 
 In this task, you will add a network rule that allows outbound access to two IP addresses at port 53 (DNS).
 
@@ -283,7 +284,7 @@ In this task, you will add a network rule that allows outbound access to two IP 
 
  
 
-## Task 8: Configure a Destination NAT (DNAT) rule
+### Task 8: Configure a Destination NAT (DNAT) rule
 
 In this task, you will add a DNAT rule that allows you to connect a remote desktop to the Srv-Work virtual machine through the firewall.
 
@@ -317,7 +318,7 @@ In this task, you will add a DNAT rule that allows you to connect a remote deskt
 
  
 
-## Task 9: Change the primary and secondary DNS address for the server's network interface
+### Task 9: Change the primary and secondary DNS address for the server's network interface
 
 For testing purposes in this exercise, in this task, you will configure the Srv-Work server's primary and secondary DNS addresses. However, this is not a general Azure Firewall requirement.
 
@@ -343,7 +344,7 @@ For testing purposes in this exercise, in this task, you will configure the Srv-
 
  
 
-## Task 10: Test the firewall
+### Task 10: Test the firewall
 
 In this final task, you will test the firewall to verify that the rules are configured correctly and working as expected. This configuration will enable you to connect a remote desktop connection to the Srv-Work virtual machine through the firewall, via the firewall's public IP address. 
 
@@ -382,7 +383,7 @@ In this final task, you will test the firewall to verify that the rules are conf
     ![RDP session on Srv-work server - browser blocked on microsoft.com](../media/remote-desktop-connection-3.png)
 
  
-## Task 11: Clean up resources 
+### Task 11: Clean up resources 
 
 >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
 
@@ -397,14 +398,14 @@ In this final task, you will test the firewall to verify that the rules are conf
     >**Note**: The command executes asynchronously (as determined by the -AsJob parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the resource groups are actually removed.
 
 
-## Review Questions
+### Review Questions
 - To block access to Azure Backup, what rule will you configure?
 - To block access to **portal.azure.com**, what rule will you configure?
 - Why does the Firewall have a Public and a Private IP?
 - What is Forced Tunneling in the Firewall Setup Wizard?
 - In what layer of the OSI Model does the **Premium** tier of the Firewall work?
 
-## Review
+### Review
 In this lab, you have:
 + Deployed the firewall and firewall policy
 + Created a user defined route
