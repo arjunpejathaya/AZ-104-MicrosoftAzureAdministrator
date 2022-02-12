@@ -6,15 +6,15 @@ layout: home
 
 # Content Directory
 
-Required labs files can be DOWNLOADED FROM [HERE](https://github.com/arjunpejathaya/AZ-104-MicrosoftAzureAdministrator/archive/master.zip)
+Required labs files can be downloaded [here](https://github.com/arjunpejathaya/AZ-104-MicrosoftAzureAdministrator/archive/master.zip)
 
-Hyperlinks to each of the lab exercises are listed below.
+- Hyperlinks to each of the lab exercises are listed below.
 
-The following instructions are for performing labs alongside Virtual Instructor Led Classes.
+- The following instructions are for performing labs alongside Virtual Instructor Led Classes.
 
-The labs can be completed with the $100 Azure Pass issued for attendees of the course.
+- The labs can be completed with the $100 Azure Pass issued for attendees of the course.
 
-It is recommended to try these labs on a Personal Owned Machine and not on Corporate Assets.
+- It is recommended to try these labs on a Personal Owned Machine and not on Corporate Assets.
 
 ## Labs
 
