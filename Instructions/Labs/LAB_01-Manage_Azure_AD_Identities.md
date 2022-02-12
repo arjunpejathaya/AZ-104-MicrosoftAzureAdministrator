@@ -20,6 +20,9 @@ In this lab, you will:
 + Task 2: Create Azure AD groups with assigned and dynamic membership
 + Task 3: Create an Azure Active Directory (AD) tenant
 + Task 4: Manage Azure AD guest users 
++ Task 5: Configure Conditional Access with Named Locations
++ Task 6: Implement Privileged Identity Management
++ Task 7: Implement Azure AD Password Protection
 
 ## Estimated timing: 30 minutes
 
