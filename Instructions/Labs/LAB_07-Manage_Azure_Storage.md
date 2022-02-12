@@ -21,6 +21,7 @@ In this lab, you will:
 + Task 4: Manage authentication and authorization for Azure Storage
 + Task 5: Create and configure an Azure Files shares
 + Task 6: Manage network access for Azure Storage
++ Task 7: Implement File Sync in Azure
 
 ## Estimated timing: 40 minutes
 
@@ -31,9 +32,9 @@ In this lab, you will:
 
 ## Instructions
 
-### Exercise 1
+## Exercise 1
 
-#### Task 1: Provision the lab environment
+### Task 1: Provision the lab environment
 
 In this task, you will deploy an Azure virtual machine that you will use later in this lab.
 
@@ -80,7 +81,7 @@ In this task, you will deploy an Azure virtual machine that you will use later i
 
 1. Close the Cloud Shell pane.
 
-#### Task 2: Create and configure Azure Storage accounts
+### Task 2: Create and configure Azure Storage accounts
 
 In this task, you will create and configure an Azure Storage account.
 
@@ -117,7 +118,7 @@ In this task, you will create and configure an Azure Storage account.
 
     > **Note**: The cool access tier is optimal for data which is not accessed frequently.
 
-#### Task 3: Manage blob storage
+### Task 3: Manage blob storage
 
 In this task, you will create a blob container and upload a blob into it.
 
@@ -156,7 +157,7 @@ In this task, you will create a blob container and upload a blob into it.
 
     > **Note**: You have the option to download the blob, change its access tier (it is currently set to **Hot**), acquire a lease, which would change its lease status to **Locked** (it is currently set to **Unlocked**) and protect the blob from being modified or deleted, as well as assign custom metadata (by specifying an arbitrary key and value pairs). You also have the ability to **Edit** the file directly within the Azure portal interface, without downloading it first. You can also create snapshots, as well as generate a SAS token (you will explore this option in the next task).
 
-#### Task 4: Manage authentication and authorization for Azure Storage
+### Task 4: Manage authentication and authorization for Azure Storage
 
 In this task, you will configure authentication and authorization for Azure Storage.
 
@@ -219,7 +220,7 @@ In this task, you will configure authentication and authorization for Azure Stor
 
     > **Note**: It might take about 5 minutes for the change to take effect.
 
-#### Task 5: Create and configure an Azure Files shares
+### Task 5: Create and configure an Azure Files shares
 
 In this task, you will create and configure Azure Files shares.
 
@@ -261,7 +262,7 @@ In this task, you will create and configure Azure Files shares.
 
 1. Click **az104-07-folder** and verify that **az104-07-file.txt** appears in the list of files.
 
-#### Task 6: Manage network access for Azure Storage
+### Task 6: Manage network access for Azure Storage
 
 In this task, you will configure network access for Azure Storage.
 
@@ -296,7 +297,126 @@ In this task, you will configure network access for Azure Storage.
 
 1. Close the Cloud Shell pane.
 
-#### Clean up resources
+### Task 7: Implement File Sync in Azure
+
+1. Create an Azure Storage Account with the following configuration.
+    | Setting | Value |
+    | --- | --- |
+    | Storage Account name | az104-filesync-**"your initials"** |
+    | Region | **East US** |
+    | Performance | **Standard** |
+    | Redundancy | **Locally Redundant Storage (LRS)** |
+
+2. Click on **Review + Create** and wait till the storage account is created.
+
+3. Create a **File Share** in the storage account with the name **test**. Accept defaults for the other settings.
+
+4. In the Azure Portal, search for the **Storage Sync Services** resource.
+
+5. Click on **+ Create** and select the Resource Group and enter a name for the Sync Service. Select the region as **East US**.
+
+6. Click on **Review + Create** and create the Sync Service.
+
+3. From the **All services** blade in the Portal Menu, search for and select **Virtual machines**, and then click **+Add, +Create, +New** and choose **+Virtual machine** from the drop down.
+
+4. On the **Basics** tab, fill in the following information (leave the defaults for everything else):
+
+    | Settings | Values |
+    |  -- | -- |
+    | Subscription | **Use default supplied** |
+    | Resource group | **Create new resource group** |
+    | Virtual machine name | **myVM** |
+    | Region | **(US) East US**|
+    | Availability options | No infrastructure redundancy options required|
+    | Image | **Windows Server 2019 Datacenter - Gen2**|
+    | Size | **Standard D2s v3**|
+    | Administrator account username | **azureuser** |
+    | Administrator account password (type in carefully!) | **Enter your own password**|
+    | Inbound port rules - | **Allow select ports **|
+    | Select inbound ports | **RDP (3389)**| 
+
+5. Switch to the Networking tab to ensure **RDP (3389)** are selected in section **Select inbound ports**.
+
+6. Switch to the Management tab, and in its **Monitoring** section, select the following setting:
+
+    | Settings | Values |
+    | -- | -- |
+    | Boot diagnostics | **Disable**|
+
+7. Leave the remaining values on the defaults and then click the **Review + create** button at the bottom of the page.
+
+8. Once Validation is passed click the **Create** button. It can take anywhere from five to seven minutes to deploy the virtual machine.
+
+9. You will receive updates on the deployment page and via the **Notifications** area (the bell icon in the top menu bar).
+
+14. Open the **Storage Sync Services** resource created and from the **Overview** page, select **+ Sync Group**. Enter the following details
+    | Setting | Value |
+    | --- | --- |
+    | Sync Group Name | Local to Cloud Group |
+    | Storage Account | **Select Storage Account** and select the account and file share you created |
+
+15. Click on **Create** and wait till the Cloud Endpoint is created.
+
+16. Once created, Click on the Sync Group and notice that you cannot add another Cloud Endpoint. 
+
+17. Go back to the previous blade and from the left pane, select **Registered Servers** and right click, copy the **File Sync Agent** URL from the top instructions.
+
+In the next set of steps, we will connect to our new virtual machine using RDP (Remote Desktop Protocol). 
+
+18. Click on bell icon from the upper blue toolbar, and select 'Go to resource' when your deployment has succeded. 
+
+    **Note**: You could also use the **Go to resource** link on the deployment page 
+
+19. On the virtual machine **Overview** blade, click **Connect** button and choose **RDP** from the drop down.
+
+    **Note**: The following directions tell you how to connect to your VM from a Windows computer. On a Mac, you need an RDP client such as this Remote Desktop Client from the Mac App Store and on a Linux computer you can use an open source RDP client.
+
+2. On the **Connect to virtual machine** page, keep the default options to connect with the public IP address over port 3389 and click **Download RDP File**. A file will download on the bottom left of your screen.
+
+3. **Open** the downloaded RDP file (located on the bottom left of your lab machine) and click **Connect** when prompted. 
+
+4. In the **Windows Security** window, sign in using your Azure Portal Global Administrator account (the one you used to redeem your Azure Pass) and it's password. 
+
+5. You may receive a warning certificate during the sign-in process. Click **Yes** or to create the connection and connect to your deployed VM. You should connect successfully.
+
+6. A new Virtual Machine (myVM) will launch inside your Lab. Close the Server Manager and dashboard windows that pop up (click "x" at top right). You should see the blue background of your virtual machine. **Congratulations!** You have deployed and connected to a Virtual Machine running Windows Server.
+
+25. In the **Server Manager**, on the left pane, select **Local Server**
+
+26. In the newly opened tab, click on **On** next to **IE Enahanced Security Configuration** and select **Off** for Administrators.
+
+27. Open **Internet Explorer**. Click on **Ask me Later** if prompted and paste the URL in the Address Bar.
+
+28. Check the **StorageSyncAgent_WS2019.msi** entry from the list and click on Next.
+
+29. In the pop-up blocked alert from the bottom pane, click on **Options for this site** and **Always Allow**. The file should be saved to your **Downloads** directory. Run the downloaded file and follow the steps to install the same by accepting all default settings.
+
+30. Go to the Desktop, Right Click and create a new folder and give the name **onpremtest**. Right Click on the folder and go to properties. Go to the **Sharing** section and click on the **Share** button and the **Share** button in the bottom pane again. Click on **Yes, turn on network discovery and file sharing for all public networks** in the prompt and click on done and close the open window for the folder.
+
+31. Once the agent installation finishes, it will check for updates. Click on **OK** and you should be prompted for registration.
+
+32. Select the Azure Environment as **AzureCloud** and click on Sign in.
+
+33. Login with your Azure Pass Subscription Account.
+
+34. Select your subscription, Resource Group and Storage Sync Service and click on **Register**.
+    >**Note**: It may take some time for the Storage Sync Service to appear. In that case, you may check back later in 10-15 minutes. Click on Start and click on **Azure Storage Sync Agent Updater** to relaunch the process.
+35. Once the registration succeeds, click on **Copy Azure Resource URL** and minimise your RDP Window.
+
+36. In the Storage Sync Service resource, go to the **Sync Group** and click on **Add Server endpoint**.
+
+37. Select the registered server from the dropdown.
+    >**Note**: It may take some time for the server to show up in the dropdown. You may wait for 10-15 minutes and refresh your tab and continue the process.
+
+38. Specify the path as **C:\Users\azureuser\Desktop\onpremtest**.
+
+39. You may enable tiering if you want to cache your information in the Virtual Machine (On Premises Server equivalent in this case). Keep it as **Disabled** for now and click on **Create**. Wait till the Server Endpoint is added. **Cloud Tiering is a feature which stores only frequently accessed files on the Local Server to enhance it's performance.**
+
+40. Wait till the Health of the server endpoint changes from **Pending** to **Healthy** and try to add the server endpoint again and note your observations.
+
+41. In the RDP Window, create a new text file in the folder and see if it gets synced to the File Share in the Storage Account. Note your observations with regards to the time and the directionality of sync.
+
+### Clean up resources
 
 >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
 
@@ -318,7 +438,23 @@ In this task, you will configure network access for Azure Storage.
 
     >**Note**: The command executes asynchronously (as determined by the -AsJob parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the resource groups are actually removed.
 
-#### Review
+2. To remove the Sync Service, Go to the sync group and next to the **Cloud Endpoint** and **Server Endpoint**, select **Delete**. Wait until the process is finished.
+
+1. Go to the Registered Servers and next to the server **Unregister server**. Wait until the de-provisioning happens.
+
+3. Remove the Sync Group by going to the Sync Group and selecting **Delete** in the top pane.
+
+4. Finally, go to the previous blade and remove the Sync Group by clicking on **Delete**.
+
+    >**Note**: The above four steps need to be executed after the completion of the previous steps. Ex: Do not execute step 5 before step 4 execution is completed.
+
+### Review Questions
+- If you have vendors outside your organisation, what method will you suggest to give them Granular access to your files? Is there any way you can invalidate their access if required?
+- What is the difference between Blob Storage and File Shares?
+- How can you configure your files in Hot Storage to move to Cool Storage Tier based on a rule?
+- What is the mapping of the Cloud Endpoint to the Storage Endpoint?
+
+### Review
 
 In this lab, you have:
 
@@ -328,3 +464,4 @@ In this lab, you have:
 - Managed authentication and authorization for Azure Storage
 - Created and configured an Azure Files shares
 - Managed network access for Azure Storage
+- Implemented a File Sync Service

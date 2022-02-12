@@ -31,9 +31,9 @@ In this lab, you will:
 
 ## Instructions
 
-### Exercise 1
+## Exercise 1
 
-#### Task 1: Create and configure a virtual network
+### Task 1: Create and configure a virtual network
 
 In this task, you will create a virtual network with multiple subnets by using the Azure portal
 
@@ -82,7 +82,7 @@ In this task, you will create a virtual network with multiple subnets by using t
 
 1. Click **Save**
 
-#### Task 2: Deploy virtual machines into the virtual network
+### Task 2: Deploy virtual machines into the virtual network
 
 In this task, you will deploy Azure virtual machines into different subnets of the virtual network by using an ARM template
 
@@ -122,7 +122,7 @@ In this task, you will deploy Azure virtual machines into different subnets of t
 
 1. Close the Cloud Shell pane.
 
-#### Task 3: Configure private and public IP addresses of Azure VMs
+### Task 3: Configure private and public IP addresses of Azure VMs
 
 In this task, you will configure static assignment of public and private IP addresses assigned to network interfaces of Azure virtual machines.
 
@@ -176,7 +176,7 @@ In this task, you will configure static assignment of public and private IP addr
 
     >**Note**: You will need both IP addresses in the last task of this lab.
 
-#### Task 4: Configure network security groups
+### Task 4: Configure network security groups
 
 In this task, you will configure network security groups in order to allow for restricted connectivity to Azure virtual machines.
 
@@ -239,7 +239,7 @@ In this task, you will configure network security groups in order to allow for r
 
     >**Note**: Leave the Remote Desktop session open. You will need it in the next task.
 
-#### Task 5: Configure Azure DNS for internal name resolution
+### Task 5: Configure Azure DNS for internal name resolution
 
 In this task, you will configure DNS name resolution within a virtual network by using Azure private DNS zones.
 
@@ -291,13 +291,9 @@ In this task, you will configure DNS name resolution within a virtual network by
 
 1. Verify that the output of the command includes the private IP address of **az104-04-vm1** (**10.40.1.4**).
 
-#### Task 6: Configure Azure DNS for external name resolution
+### Task 6: Configure Azure DNS for external name resolution
 
 In this task, you will configure external DNS name resolution by using Azure public DNS zones.
-
-1. In the web browser on the **SEA-DEV** lab system, open a new tab and navigate to <https://www.godaddy.com/domains/domain-name-search>.
-
-1. Use the domain name search to identify a domain name which is not in use.
 
 1. In the Azure portal, search for and select **DNS zones** and, on the **DNS zones** blade, click **+ Create**.
 
@@ -307,7 +303,7 @@ In this task, you will configure external DNS name resolution by using Azure pub
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
     | Resource Group | **az104-04-rg1** |
-    | Name | the DNS domain name you identified earlier in this task |
+    | Name | **adatum.com** |
 
 1. Click **Review and Create**. Let validation occur, and hit **Create** again to submit your deployment.
 
@@ -365,7 +361,7 @@ In this task, you will configure external DNS name resolution by using Azure pub
 
 1. Verify that the output of the command includes the public IP address of **az104-04-vm1**.
 
-#### Clean up resources
+### Clean up resources
 
  > **Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
 
@@ -387,7 +383,13 @@ In this task, you will configure external DNS name resolution by using Azure pub
 
     >**Note**: The command executes asynchronously (as determined by the -AsJob parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the resource groups are actually removed.
 
-#### Review
+### Review Questions
+- Can you peer Virtual Networks which are in different subscriptions?
+- You have two Virtual Networks having the address spaces **192.168.0.0/16** and **192.168.1.0/24**. Can you peer these networks?
+- Is Virtual Network Peering Transitive?
+- If you have two Virtual Networks, how can you make the communication uni-directional?
+
+### Review
 
 In this lab, you have:
 

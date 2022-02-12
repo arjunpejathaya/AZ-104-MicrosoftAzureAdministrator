@@ -26,10 +26,8 @@ In order to improve management of Azure resources in Contoso, you have been task
 
 In this lab, you will:
 
-+ Task 1: Implement Management Groups
-+ Task 2: Create custom RBAC roles 
-+ Task 3: Assign RBAC roles
-
++ Task 1: Create custom RBAC roles 
++ Task 2: Assign RBAC roles
 
 ## Estimated timing: 30 minutes
 
@@ -40,46 +38,9 @@ In this lab, you will:
 
 ## Instructions
 
-### Exercise 1
+## Exercise 1
 
-#### Task 1: Implement Management Groups
-
-In this task, you will create and configure management groups. 
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Search for and select **Management groups** to navigate to the **Management groups** blade.
-
-1. Review the messages at the top of the **Management groups** blade. If you are seeing the message stating **You are registered as a directory admin but do not have the necessary permissions to access the root management group**, perfom the following sequence of steps:
-
-    1. In the Azure portal, search for and select **Azure Active Directory**.
-    
-    1.  On the blade displaying properties of your Azure Active Directory tenant, in the vertical menu on the left side, in the **Manage** section, select **Properties**.
-    
-    1.  On the **Properties** blade of your your Azure Active Directory tenant, in the **Access management for Azure resources** section, select **Yes** and then select **Save**.
-    
-    1.  Navigate back to the **Management groups** blade, and select **Refresh**.
-
-1. On the **Management groups** blade, click **+ Create**.
-
-    >**Note**: If you have not previously created Management Groups, select **Start using management groups**
-
-1. Create a management group with the following settings:
-
-    | Setting | Value |
-    | --- | --- |
-    | Management group ID | **az104-02-mg1** |
-    | Management group display name | **az104-02-mg1** |
-
-1. In the list of management groups, click the entry representing the newly created management group.
-
-1. On the **az104-02-mg1** blade, click **Subscriptions**. 
-
-1. On the **az104-02-mg1 \| Subscriptions** blade, click **+ Add**, on the **Add subscription** blade, in the **Subscription** drop-down list, select the subscription you are using in this lab and click **Save**.
-
-    >**Note**: On the **az104-02-mg1 \| Subscriptions** blade, copy the ID of your Azure subscription into Clipboard. You will need it in the next task.
-
-#### Task 2: Create custom RBAC roles
+### Task 1: Create custom RBAC roles
 
 In this task, you will create a definition of a custom RBAC role.
 
@@ -97,7 +58,6 @@ In this task, you will create a definition of a custom RBAC role.
       "NotActions": [
       ],
       "AssignableScopes": [
-          "/providers/Microsoft.Management/managementGroups/az104-02-mg1",
           "/subscriptions/SUBSCRIPTION_ID"
       ]
    }
@@ -122,7 +82,7 @@ In this task, you will create a definition of a custom RBAC role.
 
 1. Close the Cloud Shell pane.
 
-#### Task 3: Assign RBAC roles
+### Task 2: Assign RBAC roles
 
 In this task, you will create an Azure Active Directory user, assign the RBAC role you created in the previous task to that user, and verify that the user can perform the task specified in the RBAC role definition.
 
@@ -139,21 +99,21 @@ In this task, you will create an Azure Active Directory user, assign the RBAC ro
 
     >**Note**: **Copy to clipboard** the full **User name**. You will need it later in this lab.
 
-1. In the Azure portal, navigate back to the **az104-02-mg1** management group and display its **details**.
+1. In the Azure portal, navigate back to the subscription and display its **details**.
 
 1. Click **Access control (IAM)**, click **+ Add** followed by **Add role assignment**, and assign the **Support Request Contributor (Custom)** role to the newly created user account.
 
-1. Open an **InPrivate** browser window and sign in to the [Azure portal](https://portal.azure.com) using the newly created user account. When prompted to update the password, change the password for the user.
+1. Open an **InPrivate/Incognito** browser window and sign in to the [Azure portal](https://portal.azure.com) using the newly created user account. When prompted to update the password, change the password for the user.
 
     >**Note**: Rather than typing the user name, you can paste the content of Clipboard.
 
-1. In the **InPrivate** browser window, in the Azure portal, search and select **Resource groups** to verify that the az104-02-aaduser1 user can see all resource groups.
+1. In the **InPrivate/Incognito** browser window, in the Azure portal, search and select **Resource groups** to verify that the az104-02-aaduser1 user can see all resource groups.
 
-1. In the **InPrivate** browser window, in the Azure portal, search and select **All resources** to verify that the az104-02-aaduser1 user cannot see any resources.
+1. In the **InPrivate/Incognito** browser window, in the Azure portal, search and select **All resources** to verify that the az104-02-aaduser1 user cannot see any resources.
 
-1. In the **InPrivate** browser window, in the Azure portal, search and select **Help + support** and then click **+ Create a support request**. 
+1. In the **InPrivate/Incognito** browser window, in the Azure portal, search and select **Help + support** and then click **+ Create a support request**. 
 
-1. In the **InPrivate** browser window, on the **Problem Desription/Summary** tab of the **Help + support - New support request** blade, type **Service and subscription limits** in the Summary field and select the **Service and subscription limits (quotas)** issue type. Note that the subscription you are using in this lab is listed in the **Subscription** drop-down list.
+1. In the **InPrivate/Incognito** browser window, on the **Problem Desription/Summary** tab of the **Help + support - New support request** blade, type **Service and subscription limits** in the Summary field and select the **Service and subscription limits (quotas)** issue type. Note that the subscription you are using in this lab is listed in the **Subscription** drop-down list.
 
     >**Note**: The presence of the subscription you are using in this lab in the **Subscription** drop-down list indicates that the account you are using has the permissions required to create the subscription-specific support request.
 
@@ -161,7 +121,7 @@ In this task, you will create an Azure Active Directory user, assign the RBAC ro
 
 1. Do not continue with creating the support request. Instead, sign out as the az104-02-aaduser1 user from the Azure portal and close the InPrivate browser window.
 
-#### Clean up resources
+### Clean up resources
 
    >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges, although, resources created in this lab do not incur extra cost.
 
@@ -191,20 +151,17 @@ In this task, you will create an Azure Active Directory user, assign the RBAC ro
 
 1. In the Azure portal, navigate back to the **Users - All users** blade of the **Azure Active Directory**, and delete the **az104-02-aaduser1** user account.
 
-1. In the Azure portal, navigate back to the **Management groups** blade. 
+### Review Questions
+- At what levels can you assign a Role to a user?
+- How can you manage multiple subscriptions present in your tenant?
+- What are the resource creation limits for a Basic Public IP? How can you check the same?
+- How can you configure alerts if you cross $100 in your bill for the first 15 days?
 
-1. On the **Management groups** blade, select the **ellipsis** icon next to your subscription under the **az104-02-mg1** management group and select **Move** to move the subscription to the **Tenant Root management group**.
 
-   >**Note**: It is likely that the target management group is the **Tenant Root management group**, unless you created a custom management group hierarchy before running this lab.
-   
-1. Select **Refresh** to verify that the subscription has successfully moved to the **Tenant Root management group**.
-
-1. Navigate back to the **Management groups** blade, right click the **ellipsis** icon to the right of the **az104-02-mg1** management group and click **Delete**.
-
-#### Review
+### Review
 
 In this lab, you have:
 
-- Implemented Management Groups
 - Created custom RBAC roles 
 - Assigned RBAC roles
+- Created Locks

@@ -11,7 +11,7 @@ lab:
 
 You were tasked with testing managing network traffic targeting Azure virtual machines in the hub and spoke network topology, which Contoso considers implementing in its Azure environment (instead of creating the mesh topology, which you tested in the previous lab). This testing needs to include implementing connectivity between spokes by relying on user defined routes that force traffic to flow via the hub, as well as traffic distribution across virtual machines by using layer 4 and layer 7 load balancers. For this purpose, you intend to use Azure Load Balancer (layer 4) and Azure Application Gateway (layer 7).
 
->**Note**: This lab, by default, requires total of 8 vCPUs available in the Standard_Dsv3 series in the region you choose for deployment, since it involves deployment of four Azure VMs of Standard_D2s_v3 SKU. If your students are using trial accounts, with the limit of 4 vCPUs, you can use a VM size that requires only one vCPU (such as Standard_B1s).
+>**Note**: This lab, by default, requires total of 8 vCPUs available in the Standard_Dsv3 series in the region you choose for deployment, since it involves deployment of four Azure VMs of Standard_D2s_v3 SKU. 
 
 ## Objectives
 
@@ -33,9 +33,9 @@ In this lab, you will:
 
 ## Instructions
 
-### Exercise 1
+## Exercise 1
 
-#### Task 1: Provision the lab environment
+### Task 1: Provision the lab environment
 
 In this task, you will deploy four virtual machines into the same Azure region. The first two will reside in a hub virtual network, while each of the remaining two will reside in a separate spoke virtual network.
 
@@ -100,7 +100,7 @@ In this task, you will deploy four virtual machines into the same Azure region. 
 
 1. Close the Cloud Shell pane.
 
-#### Task 2: Configure the hub and spoke network topology
+### Task 2: Configure the hub and spoke network topology
 
 In this task, you will configure local peering between the virtual networks you deployed in the previous tasks in order to create a hub and spoke network topology.
 
@@ -174,7 +174,7 @@ In this task, you will configure local peering between the virtual networks you 
 
     >**Note**: **Allow forwarded traffic** needs to be enabled in order to facilitate routing between spoke virtual networks, which you will implement later in this lab.
 
-#### Task 3: Test transitivity of virtual network peering
+### Task 3: Test transitivity of virtual network peering
 
 In this task, you will test transitivity of virtual network peering by using Network Watcher.
 
@@ -239,7 +239,7 @@ In this task, you will test transitivity of virtual network peering by using Net
 
     > **Note**: This is expected, since the two spoke virtual networks are not peered with each other (virtual network peering is not transitive).
 
-#### Task 4: Configure routing in the hub and spoke topology
+### Task 4: Configure routing in the hub and spoke topology
 
 In this task, you will configure and test routing between the two spoke virtual networks by enabling IP forwarding on the network interface of the **az104-06-vm0** virtual machine, enabling routing within its operating system, and configuring user-defined routes on the spoke virtual network.
 
@@ -390,7 +390,7 @@ In this task, you will configure and test routing between the two spoke virtual 
 
     > **Note**: You can use **Network Watcher** to view topology of the network.
 
-#### Task 5: Implement Azure Load Balancer
+### Task 5: Implement Azure Load Balancer
 
 In this task, you will implement an Azure Load Balancer in front of the two Azure virtual machines in the hub virtual network
 
@@ -482,7 +482,7 @@ In this task, you will implement an Azure Load Balancer in front of the two Azur
 
     > **Note**: You might need to refresh the browser window or open it again by using InPrivate mode.
 
-#### Task 6: Implement Azure Application Gateway
+### Task 6: Implement Azure Application Gateway
 
 In this task, you will implement an Azure Application Gateway in front of the two Azure virtual machines in the spoke virtual networks.
 
@@ -591,7 +591,7 @@ In this task, you will implement an Azure Application Gateway in front of the tw
 
     > **Note**: Targeting virtual machines on multiple virtual networks is not a common configuration, but it is meant to illustrate the point that Application Gateway is capable of targeting virtual machines on multiple virtual networks (as well as endpoints in other Azure regions or even outside of Azure), unlike Azure Load Balancer, which load balances across virtual machines in the same virtual network.
 
-#### Clean up resources
+### Clean up resources
 
 >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
 
@@ -613,7 +613,14 @@ In this task, you will implement an Azure Application Gateway in front of the tw
 
     >**Note**: The command executes asynchronously (as determined by the -AsJob parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the resource groups are actually removed.
 
-#### Review
+### Review Questions
+- If you want to forward the IP Address of the Client to the Backend Pool, what should you configure in your load balancer?
+- Is there a requirement that all VMs in the backend pool of the Load Balancer should have a Public IP Address?
+- What are the benefits that you get with traffic distribution on Layer 7 vs Layer 4? Can you identify which of these two services work in which layer?
+- Can Virtual Machines in East US be a part of the backend pool of an Application Gateway in West US?
+
+
+### Review
 
 In this lab, you have:
 

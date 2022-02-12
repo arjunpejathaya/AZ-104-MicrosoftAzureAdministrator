@@ -23,9 +23,9 @@ In this lab, you will:
 
 ## Instructions
 
-### Exercise 1
+## Exercise 1
 
-#### Task 1: Start a Bash session in Azure Cloud Shell
+### Task 1: Start a Bash session in Azure Cloud Shell
 
 In this task, you will open a Bash session in Cloud Shell. 
 
@@ -39,7 +39,7 @@ In this task, you will open a Bash session in Cloud Shell.
 
 1. Ensure **Bash** appears in the drop-down menu in the upper-left corner of the Cloud Shell pane.
 
-#### Task 2: Create a resource group and an Azure managed disk by using Azure CLI
+### Task 2: Create a resource group and an Azure managed disk by using Azure CLI
 
 In this task, you will create a resource group and an Azure managed disk by using Azure CLI session within Cloud Shell.
 
@@ -76,7 +76,7 @@ In this task, you will create a resource group and an Azure managed disk by usin
    az disk show --resource-group $RGNAME --name $DISKNAME
    ```
 
-#### Task 3: Configure the managed disk by using Azure CLI
+### Task 3: Configure the managed disk by using Azure CLI
 
 In this task, you will managing configuration of the Azure managed disk by using Azure CLI session within Cloud Shell. 
 
@@ -104,7 +104,7 @@ In this task, you will managing configuration of the Azure managed disk by using
    az disk show --resource-group $RGNAME --name $DISKNAME --query sku
    ```
 
-#### Clean up resources
+### Clean up resources
 
  > **Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
 
@@ -126,7 +126,10 @@ In this task, you will managing configuration of the Azure managed disk by using
 
     >**Note**: The command executes asynchronously (as determined by the --nowait parameter), so while you will be able to run another Azure CLI command immediately afterwards within the same Bash session, it will take a few minutes before the resource groups are actually removed.
 
-#### Review
+### Review Questions
+- None
+
+### Review
 
 In this lab, you have:
 

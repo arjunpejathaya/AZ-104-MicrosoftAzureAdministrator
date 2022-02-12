@@ -29,9 +29,9 @@ In this lab, you will:
 
 > **Note**:  Always create your own secure password for any virtual machine or user account you create. If the virtual machine is created for you, use **Reset password** in the Portal to update the password. 
 
-### Exercise 1
+## Exercise 1
 
-#### Task 1: Start a PowerShell session in Azure Cloud Shell
+### Task 1: Start a PowerShell session in Azure Cloud Shell
 
 In this task, you will open a PowerShell session in Cloud Shell. 
 
@@ -45,7 +45,7 @@ In this task, you will open a PowerShell session in Cloud Shell.
 
 1. Ensure **PowerShell** appears in the drop-down menu in the upper-left corner of the Cloud Shell pane.
 
-#### Task 2: Create a resource group and an Azure managed disk by using Azure PowerShell
+### Task 2: Create a resource group and an Azure managed disk by using Azure PowerShell
 
 In this task, you will create a resource group and an Azure managed disk by using Azure PowerShell session within Cloud Shell
 
@@ -86,7 +86,7 @@ In this task, you will create a resource group and an Azure managed disk by usin
    Get-AzDisk -ResourceGroupName $rgName -Name $diskName
    ```
 
-#### Task 3: Configure the managed disk by using Azure PowerShell
+### Task 3: Configure the managed disk by using Azure PowerShell
 
 In this task, you will be managing the configuration of the Azure managed disk by using Azure PowerShell session within Cloud Shell. 
 
@@ -120,11 +120,14 @@ In this task, you will be managing the configuration of the Azure managed disk b
    (Get-AzDisk -ResourceGroupName $rgName -Name $diskName).Sku
    ```
 
-#### Clean up resources
+### Clean up resources
 
    >**Note**: Do not delete resources you deployed in this lab. You will reference them in the next lab of this module.
 
-#### Review
+### Review Questions
+- Why do you need a storage account for a Cloud Shell?
+
+### Review
 
 In this lab, you have:
 

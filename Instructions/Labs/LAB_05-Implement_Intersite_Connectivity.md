@@ -7,6 +7,8 @@ lab:
 # Lab 05 - Implement Intersite Connectivity
 # Student lab manual
 
+>**Note:** This lab uses Powershell to setup the Virtual Network Gateway and Local Network Gateway. You can also implement a Site-to-Site VPN using the demo provided in the VILT.
+
 ## Lab scenario
 
 Contoso has its datacenters in Boston, New York, and Seattle offices connected via a mesh wide-area network links, with full connectivity between them. You need to implement a lab environment that will reflect the topology of the Contoso's on-premises networks and verify its functionality.
@@ -25,9 +27,9 @@ In this lab, you will:
 
 ![image](../media/lab05.png)
 
-### Instructions
+## Instructions
 
-#### Task 1: Provision the lab environment
+### Task 1: Provision the lab environment
 
 In this task, you will deploy three virtual machines, each into a separate virtual network, with two of them in the same Azure region and the third one in another Azure region.
 
@@ -72,7 +74,7 @@ In this task, you will deploy three virtual machines, each into a separate virtu
 
 1. Close the Cloud Shell pane.
 
-#### Task 2: Configure local and global virtual network peering
+### Task 2: Configure local and global virtual network peering
 
 In this task, you will configure local and global peering between the virtual networks you deployed in the previous tasks.
 
@@ -191,7 +193,7 @@ In this task, you will configure local and global peering between the virtual ne
    Add-AzVirtualNetworkPeering -Name 'az104-05-vnet2_to_az104-05-vnet1' -VirtualNetwork $vnet2 -RemoteVirtualNetworkId $vnet1.Id
    ``` 
 
-#### Task 3: Test intersite connectivity
+### Task 3: Test intersite connectivity
 
 In this task, you will test connectivity between virtual machines on the three virtual networks that you connected via local and global peering in the previous task.
 
@@ -249,7 +251,7 @@ In this task, you will test connectivity between virtual machines on the three v
 
 1. Examine the output of the command and verify that the connection was successful.
 
-#### Clean up resources
+### Clean up resources
 
 >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
 
@@ -271,7 +273,11 @@ In this task, you will test connectivity between virtual machines on the three v
 
     >**Note**: The command executes asynchronously (as determined by the -AsJob parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the resource groups are actually removed.
 
-#### Review
+### Review Questions
+- Can you use a Site-to-Site VPN to connect two Virtual Networks? What is the difference between using a Site-to-Site VPN vs Peering to connect two Virtual Networks in Azure?
+- For high availability, what mode of Site-to-Site VPN Gateway should you configure?
+
+### Review
 
 In this lab, you have:
 

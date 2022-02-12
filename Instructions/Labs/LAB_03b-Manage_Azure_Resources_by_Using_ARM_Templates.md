@@ -26,9 +26,9 @@ In this lab, you will:
 
 ## Instructions
 
-### Exercise 1
+## Exercise 1
 
-#### Task 1: Review an ARM template for deployment of an Azure managed disk
+### Task 1: Review an ARM template for deployment of an Azure managed disk
 
 In this task, you will create an Azure disk resource by using an Azure Resource Manager template.
 
@@ -58,7 +58,7 @@ In this task, you will create an Azure disk resource by using an Azure Resource 
     
 1. Close all **File Explorer** windows.
 
-#### Task 2: Create an Azure managed disk by using an ARM template
+### Task 2: Create an Azure managed disk by using an ARM template
 
 1. In the Azure portal, search for and select **Deploy a custom template**.
 
@@ -118,7 +118,7 @@ In this task, you will create an Azure disk resource by using an Azure Resource 
 
 1. Verify that the deployment completed successfully.
 
-#### Task 3: Review the ARM template-based deployment of the managed disk
+### Task 3: Review the ARM template-based deployment of the managed disk
 
 1. In the Azure portal, search for and select **Resource groups**. 
 
@@ -128,11 +128,15 @@ In this task, you will create an Azure disk resource by using an Azure Resource 
 
 1. From the **az104-03b-rg1 - Deployments** blade, click the first entry in the list of deployments and review the content of the **Input** and **Template** blades.
 
-#### Clean up resources
+### Clean up resources
 
    >**Note**: Do not delete resources you deployed in this lab. You will reference them in the next lab of this module.
 
-#### Review
+### Review Questions
+- Can you mark parameters as optional and mandatory in a template?
+- What happens if you do not add a mandatory parameter like "User Name" for Virtual Machines in the template?
+
+### Review
 
 In this lab, you have:
 
