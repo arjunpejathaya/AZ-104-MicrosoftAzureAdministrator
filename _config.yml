@@ -1,12 +1,11 @@
-remote_theme: MicrosoftLearning/Jekyll-Theme
+remote_theme: arjunpejathaya/Jekyll-Theme
 exclude:
   - readme.md
   - .github/
 header_pages:
   - index.html
-author: Microsoft Learning
-twitter_username: mslearning
-github_username:  MicrosoftLearning
+author: Arjun Pejathaya
+github_username:  arjunpejathaya
 plugins:
   - jekyll-sitemap
   - jekyll-mentions

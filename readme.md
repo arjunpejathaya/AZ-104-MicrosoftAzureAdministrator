@@ -2,8 +2,7 @@
 
 ## Welcome
 
-- **[Link to labs (HTML format)](https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/)**
-- **Are you a MCT?** - Have a look at our [GitHub User Guide for MCTs](https://microsoftlearning.github.io/MCT-User-Guide/)
+- **[Link to labs (HTML format)](https://az104labs.pejathaya.in/)**
 
 ## Security Issue - February 2022
 
@@ -31,10 +30,6 @@ Once they login the machines can be used for crypto-mining or other non-classroo
 - Any MCT can submit a pull request to the code or content in the GitHub repro, Microsoft and the course author will triage and include content and lab code changes as needed.
 
 - You can submit bugs, changes, improvement and ideas.  Find a new Azure feature before we have?  Submit a new demo!
-
-## What about changes to the student handbook?
-
-- This repository is only for Issues with the course labs. Comments on the course content should be posted on the MCT Courseware Forum. 
 
 ## Notes
 
