@@ -350,8 +350,9 @@ In this task, you will configure network access for Azure Storage.
 9. You will receive updates on the deployment page and via the **Notifications** area (the bell icon in the top menu bar).
 
 14. Open the **Storage Sync Services** resource created and from the **Overview** page, select **+ Sync Group**. Enter the following details
+
     | Setting | Value |
-    | --- | --- |
+    | -- | -- |
     | Sync Group Name | Local to Cloud Group |
     | Storage Account | **Select Storage Account** and select the account and file share you created |
 
