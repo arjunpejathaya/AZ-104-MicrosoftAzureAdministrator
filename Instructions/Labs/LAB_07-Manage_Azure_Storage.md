@@ -301,7 +301,7 @@ In this task, you will configure network access for Azure Storage.
 
 1. Create an Azure Storage Account with the following configuration.
     | Setting | Value |
-    | --- | --- |
+    | -- | -- |
     | Storage Account name | az104-filesync-**"your initials"** |
     | Region | **East US** |
     | Performance | **Standard** |
@@ -354,7 +354,7 @@ In this task, you will configure network access for Azure Storage.
     | Setting | Value |
     | -- | -- |
     | Sync Group Name | Local to Cloud Group |
-    | Storage Account | **Select Storage Account** and select the account and file share you created |
+    | Storage Account | Click on **Select Storage Account** and select the account and file share you created |
 
 15. Click on **Create** and wait till the Cloud Endpoint is created.
 
