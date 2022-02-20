@@ -300,6 +300,7 @@ In this task, you will configure network access for Azure Storage.
 ### Task 7: Implement File Sync in Azure
 
 1. Create an Azure Storage Account with the following configuration.
+
     | Setting | Value |
     | -- | -- |
     | Storage Account name | az104-filesync-**"your initials"** |
