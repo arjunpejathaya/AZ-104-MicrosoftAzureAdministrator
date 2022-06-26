@@ -31,7 +31,7 @@ In this exercise, you will:
 
 | **Tab**         | **Option**                             | **Value**            |
 | --------------- | -------------------------------------- | -------------------- |
-| Basics          | Resource group                         | ContosoResourceGroup |
+| Basics          | Resource group                         | az104-04b            |
 |                 | Name                                   | Contoso.com          |
 | Tags            | No changes required                    |                      |
 | Review + create | Review your settings and select Create |                      |
@@ -178,6 +178,27 @@ In this section, you will create two test VMs to test the Private DNS zone confi
 
 19. Alternatively, you can enter the command nslookup TestVM2.contoso.com and verify that you receive a successful name resolution record for VM2
  
+### Clean up resources
+
+>**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
+
+>**Note**:  Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a longer time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going. 
+
+1. In the Azure portal, open the **PowerShell** session within the **Cloud Shell** pane.
+
+1. List all resource groups created throughout the labs of this module by running the following command:
+
+   ```powershell
+   Get-AzResourceGroup -Name 'az104-04b*'
+   ```
+
+1. Delete all resource groups you created throughout the labs of this module by running the following command:
+
+   ```powershell
+   Get-AzResourceGroup -Name 'az104-04b*' | Remove-AzResourceGroup -Force -AsJob
+   ```
+
+    >**Note**: The command executes asynchronously (as determined by the -AsJob parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the resource groups are actually removed.
 
 ### Review Questions
 - You have an internal DNS zone named contoso.com and you have an external DNS zone named contoso.com. If you request the webpage from worldwide.contoso.com, which DNS zone will be checked first?
