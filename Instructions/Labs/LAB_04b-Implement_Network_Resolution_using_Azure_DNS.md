@@ -140,7 +140,7 @@ In this section, you will create two test VMs to test the Private DNS zone confi
 
 1. On the Azure Portal home page, select **Virtual Machines**.
 
-2. Select **TestVM1**.
+2. Select **TestVM1**. At this point of time, if you do not have Virtual Machines in your Resource Group, Please create two Virtual Machines named **TestVM1** and **TestVM2** in the same Virtual Network and of the size **B2ms** running **Windows Server 2022 Azure Edition**. You can set your own Username and Password for the Virtual Machine.
 
 3. In TestVM1, select **Connect &gt; RDP**.
 
