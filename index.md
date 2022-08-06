@@ -14,7 +14,7 @@ Required labs files can be downloaded [here](https://github.com/arjunpejathaya/A
 
 - The labs can be completed with the $100 Azure Pass issued for attendees of the course.
 
-- It is recommended to try these labs on a Personal Owned Machine and not on Corporate Assets.
+- It is recommended to try these labs on a Personal Machine and not on Corporate Assets.
 
 ## Labs
 

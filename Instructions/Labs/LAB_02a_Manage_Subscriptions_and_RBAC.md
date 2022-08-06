@@ -155,6 +155,7 @@ In this task, you will create an Azure Active Directory user, assign the RBAC ro
 - At what levels can you assign a Role to a user?
 - How can you manage multiple subscriptions present in your tenant?
 - What are the resource creation limits for a Basic Public IP? How can you check the same?
+- What is the difference between a Resource Provider and a Feature scoped to a subscription?
 - How can you configure alerts if you cross $100 in your bill for the first 15 days?
 
 

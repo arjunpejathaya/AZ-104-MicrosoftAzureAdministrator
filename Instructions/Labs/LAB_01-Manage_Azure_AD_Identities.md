@@ -474,7 +474,7 @@ In the next set of steps, we will connect to our new virtual machine using RDP (
 > **Note**: You will have to wait for the trial license expiration before you can delete the tenant. This does not incur any additional cost. But make sure you switch back to your original tenant before ending this lab.
 
 ### Review Questions
-- Do you think that the case has any impact on the Dynamic Membership rule?
+- Do you think that the case of the rule configured has any impact on the Dynamic Membership?
 - When you login from your hotmail.com/outlook.com/live.com account to Azure, it creates a tenant. What kind of a user are you? A Member or a Guest and what kind of authentication is it using between the two entities?
 - Can you assign the Azure AD Premium P2 license to Users, Groups and Devices? If not, what kind of entities can you assign a license to?
 - Why did the Azure VM show up as Azure AD Joined and not Azure AD Registered or Hybrid Joined?
